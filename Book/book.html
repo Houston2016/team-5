@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<title>Ebook Example</title>
+<style>
+div.page {
+    position: fixed;
+    bottom: 200;
+    right: 100;
+    width: 300px;
+    border: 3px;
+}
+</style>
+	</head>
+
+	<body>
+
+<script language="javascript">
+<!--
+
+i = 0;
+w = 500;
+
+pages = new Array();
+pages[0] = document.createElement("IMG");
+    pages[0].setAttribute("src", "Every Minute On Earth Cover.jpg");
+    pages[0].setAttribute("width", w);
+    pages[0].setAttribute("alt", "book");
+	document.body.appendChild(pages[0]);
+
+pages[1] = document.createElement("IMG");
+   	pages[1].setAttribute("src", "Instructions Page 1.jpg");
+   	pages[1].setAttribute("width", w);
+    	pages[1].setAttribute("alt", "book");
+
+pages[2] = document.createElement("IMG");
+   	pages[2].setAttribute("src", "Instructions Page 2.jpg");
+   	pages[2].setAttribute("width", w);
+    	pages[2].setAttribute("alt", "book");
+
+pages[3] = document.createElement("IMG");
+   	pages[3].setAttribute("src", "Intro Page 1.jpg");
+   	pages[3].setAttribute("width", w);
+    	pages[3].setAttribute("alt", "book");
+
+
+pages[4] = document.createElement("IMG");
+   	pages[4].setAttribute("src", "Intro Page 2.jpg");
+   	pages[4].setAttribute("width", w);
+    	pages[4].setAttribute("alt", "book");
+
+pages[5] = document.createElement("IMG");
+   	pages[5].setAttribute("src", "Task List Activity.jpg");
+   	pages[5].setAttribute("width", w);
+    	pages[5].setAttribute("alt", "book");
+
+function nextPage()
+{
+	document.body.removeChild(pages[i]);
+	document.body.appendChild(pages[i+1]);
+	document.body.appendChild(pages[i+2]);
+	i=i+1;
+}
+
+</script>
+
+
+<div class = "page">
+<button onclick = "nextPage()"> Next Page </button>
+</div>
+</body>
+</html>
