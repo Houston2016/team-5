@@ -1,49 +1,55 @@
 <html>
 	<head>
 		<title>Simple Photo Gallery with HTML and JavaScript</title>
+<style>
+div.page {
+    position: fixed;
+    bottom: 200;
+    right: 100;
+    width: 300px;
+    border: 3px;
+}
+</style>
 	</head>
 
 	<body>
-<button onclick = "nextPage()"> Next Page </button>
 
 <script language="javascript">
 <!--
 
 i = 0;
+w = 500;
 
 pages = new Array();
 pages[0] = document.createElement("IMG");
     pages[0].setAttribute("src", "http://www.keenthemes.com/preview/metronic/theme/assets/global/plugins/jcrop/demos/demo_files/image1.jpg");
-    pages[0].setAttribute("width", "304");
-    pages[0].setAttribute("width", "228");
-    pages[0].setAttribute("alt", "The Pulpit Rock");
+    pages[0].setAttribute("width", w);
+    pages[0].setAttribute("alt", "book");
 	document.body.appendChild(pages[0]);
 
 pages[1] = document.createElement("IMG");
    	pages[1].setAttribute("src", "http://slodive.com/wp-content/uploads/2012/03/thumbs-up-symbol-pictures/baby.jpg");
-   	pages[1].setAttribute("width", "304");
-    	pages[1].setAttribute("width", "228");
-    	pages[1].setAttribute("alt", "The Pulpit Rock");
+   	pages[1].setAttribute("width", w);
+    	pages[1].setAttribute("alt", "book");
 
 pages[2] = document.createElement("IMG");
    	pages[2].setAttribute("src", "http://www.exterminatorstatenisland.com/large_image/squirrel/squirrel4.jpg");
-   	pages[2].setAttribute("width", "304");
-    	pages[2].setAttribute("width", "228");
-    	pages[2].setAttribute("alt", "The Pulpit Rock");
+   	pages[2].setAttribute("width", w);
+    	pages[2].setAttribute("alt", "book");
 
 function nextPage()
 {
-
 	document.body.removeChild(pages[i]);
 	document.body.appendChild(pages[i+1]);
+	document.body.appendChild(pages[i+2]);
 	i=i+1;
-
 }
-
-
 
 </script>
 
+
+<div class = "page">
+<button onclick = "nextPage()"> Next Page </button>
+</div>
 </body>
 </html>
-
