@@ -1,0 +1,98 @@
+<html>
+
+<head>
+<style type="text/css">
+body {font-family:Arial;}
+</style>
+<script language="javascript">
+</script>
+</head>
+
+<body>
+<center>
+	Drag the boxes to the plate. Can you finish in six seconds or less?
+	<br>
+	<br>
+	<button onclick="setTimeout(startTimer, 6000)">Start Timer </button>
+	<br>
+	<button onclick="clearTimeout(var)">Clear Timer </button>
+		<script language="javascript">
+	function startTimer() {
+		alert('Your time is up!');
+	}
+	</script>
+<br>
+	<img src="paper_plate.jpg" style="width:400px;height:400px">
+
+<p>
+	<style type="text/css">
+	li {
+		list-style: : none;
+	}
+
+	li a{
+		text-decoration: none;
+		color: #000;
+		margin: 10px;
+		width: 130px;
+		border: none;
+		background: #FFA07A;
+		padding: 5px;
+		display: block;
+	}
+
+	*[draggable=true]{
+		-moz-user-select:none;
+		-khtml-user-drag: element;
+		cursor: move;
+	}
+	li a:hover:after{
+		content: ' (drag me)';
+	}
+	ul{
+		margin-left: 50px;
+		min-height: 30px;
+	}
+	li.over{
+		border-color: #000;
+		background: #ccc;
+	}
+
+	</style>
+
+	<div id="plate"></div>
+	<ul>
+		<li><a id="one" href="#">one</a></li>
+	    <li><a href="#" id="two">two</a></li>
+	    <li><a href="#" id="three">three</a></li>
+	    <li><a href="#" id="four">four</a></li>
+	    <li><a href="#" id="five">five</a></li>
+	</ul>
+
+	<script>
+	var drop = ['1!', '2!', '3!', '4!'];
+	var done = document.createElement('p');
+
+	var links = document.querySelectorAll('li > a'), el=null;
+	for (var i = 0; i < links.length; i++) {
+    el = links[i];
+  
+    el.setAttribute('draggable', 'true');
+  
+    addEvent(el, 'dragstart', function (e) {
+      e.dataTransfer.effectAllowed = 'copy'; 
+      e.dataTransfer.setData('Text', this.id); 
+      });
+  }
+
+  var plate = document.querySelector('#plate');
+  addEvent(plate, 'dragover', function (e){
+	if (e.preventDefault) e.preventDefault(); 
+    this.className = 'over';
+    e.dataTransfer.dropEffect = 'copy';
+    return false;
+  });
+	</script>
+</center>
+</body>
+</html>
