@@ -10,10 +10,10 @@ body {font-family:Arial;}
 
 <body>
 <center>
-	Drag the boxes to the plate. Can you finish in a minute or less?
+	Drag the boxes to the plate. Can you finish in six seconds or less?
 	<br>
 	<br>
-	<button onclick="setTimeout(startTimer, 60000)">Start Timer </button>
+	<button onclick="setTimeout(startTimer, 6000)">Start Timer </button>
 	<br>
 	<button onclick="clearTimeout(var)">Clear Timer </button>
 		<script language="javascript">
@@ -22,6 +22,8 @@ body {font-family:Arial;}
 	}
 	</script>
 <br>
+	<img src="paper_plate.jpg" style="width:400px;height:400px">
+
 <p>
 	<style type="text/css">
 	li {
@@ -48,33 +50,14 @@ body {font-family:Arial;}
 		content: ' (drag me)';
 	}
 	ul{
-		margin-left: 200px;
-		min-height: 300px;
+		margin-left: 50px;
+		min-height: 30px;
 	}
 	li.over{
 		border-color: #000;
 		background: #ccc;
 	}
-	#plate{
-		background: url(paper_plate.jpg) top right no repeat;
-		height: 400px;
-		width: 400px;
-		float: left;
-		position: relative;
-		margin-top: 0;
-	}
-	#plate.over {
-		background: url(paper_plate.jpg) top left no repeat;
-	}
-	#plate p{
-		font-weight: bold;
-		text-align: center;
-		position: absolute;
-		bottom: 30px;
-		width: 150px;
-		font-size: 30px;
-		color: #fff;
-	}
+
 	</style>
 
 	<div id="plate"></div>
@@ -104,7 +87,7 @@ body {font-family:Arial;}
 
   var plate = document.querySelector('#plate');
   addEvent(plate, 'dragover', function (e){
-	if (e.preventDefault) e.preventDefault(); // allows us to drop
+	if (e.preventDefault) e.preventDefault(); 
     this.className = 'over';
     e.dataTransfer.dropEffect = 'copy';
     return false;
